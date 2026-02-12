@@ -65,3 +65,11 @@ Mubazir adalah platform berbasis web yang memfasilitasi **donasi makanan** dari 
 1. Clone repository:
    ```bash
    git clone https://github.com/dyme15/mubazir.git
+
+---
+
+## 👤 Kontributor
+
+- **Dodyk Fahlome (Software Engineer):** https://github.com/dyme15
+- **Kaka Davi Dharmawan (System Analyst):** https://github.com/dapiupiu 
+- **Dea Alya (UI/UX Designer):** https://github.com/deaalyaa
