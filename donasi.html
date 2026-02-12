@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donasi - Mubazir</title>
+
+  <!-- Favicons -->
+  <link href="assets/img/extra/logo-M.png" rel="icon">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- CSS Utama -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/donasi.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <h1 class="sitename">
+          <img src="assets/img/extra/LOGO MUBAZIR-LOMBA (1).png" alt="Logo Mubazir" class="logo">
+        </h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html#hero">Beranda</a></li>
+          <li><a href="index.html#about">Tentang</a></li>
+          <li><a href="index.html#donatur">Donatur</a></li>
+          <li><a href="index.html#gallery">Galeri</a></li>
+          <li><a href="index.html#contact">Kontak</a></li>
+          <li><a href="#">Donasi</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a id="btnDonasi" class="btn-getstarted" href="login.html">Login</a>
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <!-- ======= Feed Donasi ======= -->
+  <main class="flex-grow-1">
+    <section id="feed" class="feed section">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <h2 id="judulFeed" class="mb-0" style="font-weight: bold;">Semua Donasi</h2>
+          <div class="d-flex gap-2" style="max-width: 600px; width:100%;">
+            <input type="text" id="searchInput" class="form-control flex-grow-1" placeholder="Cari donasi...">
+
+            <div class="dropdown">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownKategori" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-funnel"></i>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownKategori">
+                <li><a class="dropdown-item" href="#" data-value="all">Semua Donasi</a></li>
+                <li><a class="dropdown-item" href="#" data-value="makanan">Makanan</a></li>
+                <li><a class="dropdown-item" href="#" data-value="snack">Snack & Roti</a></li>
+                <li><a class="dropdown-item" href="#" data-value="minuman">Minuman</a></li>
+                <li><a class="dropdown-item" href="#" data-value="buah">Buah & Hidangan Penutup</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row gy-4" id="postContainer">
+          <!-- Data donasi akan di-load dari donasi.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer dark-background mt-auto">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Alamat</h4>
+            <p>Jl. Lap Golf, Kp. Tengah, Kec. Pancur Batu,</p>
+            <p>Kabupaten Deli Serdang 20353, Sumatera Utara – Indonesia</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Kontak</h4>
+            <p>
+              <strong>Phone:</strong> <span>(+6261) 6615683, 6622925</span><br>
+              <strong>Email:</strong> <span>ilkomp@uinsu.ac.id</span><br>
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Jam Operasional</h4>
+            <p><strong>Mon-Sun:</strong> <span>11AM - 23PM</span></p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4>Ikuti Kami</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">UIN Sumatera Utara</strong></p>
+      <div class="credits">
+        Designed by <a href="https://bootstrapmade.com/">KD2</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+  <!-- Donasi JS -->
+  <script type="module" src="assets/js/donasi.js"></script>
+
+</body>
+</html>

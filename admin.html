@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - Mubazir</title>
+
+  <link href="assets/img/extra/logo-M.png" rel="icon">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      overflow-x: hidden;
+      background: #f5f7fa;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    #sidebar {
+      min-width: 240px;
+      max-width: 240px;
+      background: linear-gradient(180deg, #dc3545 0%, #b02a37 100%);
+      color: #fff;
+      transition: all 0.3s ease;
+      box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+
+    #sidebar.collapsed {
+      margin-left: -240px;
+    }
+
+    #sidebar .nav-link {
+      color: #fff;
+      padding: 10px 15px;
+      margin: 4px 0;
+      border-radius: 6px;
+      transition: 0.3s;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    #sidebar .nav-link.active,
+    #sidebar .nav-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateX(6px);
+    }
+
+    #content {
+      margin-left: 240px;
+      transition: margin-left 0.3s ease;
+    }
+
+    #content.expanded {
+      margin-left: 0;
+    }
+
+    .navbar {
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    #toggleSidebar {
+      margin-right: 15px;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    #toggleSidebar:hover {
+      transform: rotate(90deg) scale(1.1);
+      background: #dc3545;
+      color: #fff;
+    }
+
+    .card {
+      border: none;
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+      transition: 0.3s;
+    }
+
+    .page-section {
+      display: none;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    .sidebar-logo {
+      height: 150px;
+      width: 150px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      filter: drop-shadow(0 0 5px rgb(199, 197, 167));
+      border-radius: 10px;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="d-flex">
+    <nav id="sidebar" class="d-flex flex-column p-3 vh-100 position-fixed">
+      <img class="sidebar-logo" src="assets/img/extra/LOGO MUBAZIR-LOMBA (1).png" alt="Logo Mubazir">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li><a class="nav-link active" data-section="dashboard"><i class="bi bi-speedometer2 me-2"></i> Dashboard</a></li>
+        <li><a class="nav-link" data-section="verifikasi"><i class="bi bi-check-circle me-2"></i> Verifikasi Donasi</a></li>
+        <li><a class="nav-link" data-section="monitor"><i class="bi bi-graph-up me-2"></i> Monitoring</a></li>
+        <li><button id="logoutBtn" class="btn btn-outline-light mt-3 w-100"><i class="bi bi-box-arrow-right"></i> Logout</button></li>
+      </ul>
+    </nav>
+
+<div id="content" class="flex-grow-1">
+  <nav class="navbar navbar-light shadow-sm">
+    <div class="container-fluid d-flex align-items-center">
+      <button id="toggleSidebar" class="btn btn-outline-danger me-3"><i class="bi bi-grid"></i></button>
+      <span class="ms-auto badge bg-danger fs-6 shadow-sm"><i class="bi bi-shield-lock"></i> Admin Mode</span>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    <div id="dashboard" class="page-section active">
+      <div class="card p-4 mb-4">
+        <h3>Selamat Datang, <span id="namaDashboard">Admin!</span></h3>
+        <p class="text-muted">Gunakan menu di samping untuk mengelola sistem Mubazir.</p>
+      </div>
+    </div>
+
+    <div id="verifikasi" class="page-section">
+      <div class="card p-4">
+        <h4>✅ Verifikasi Donasi</h4>
+        <table class="table table-bordered mt-3">
+          <thead class="table-danger">
+            <tr>
+              <th>Donatur</th>
+              <th>Kategori</th>
+              <th>Jumlah</th>
+              <th>Kadaluarsa</th>
+              <th>Lokasi</th>
+              <th>Bukti Foto</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="verifikasiTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="monitor" class="page-section">
+      <div class="card p-4">
+        <h4>📊 Monitoring</h4>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <div class="card p-3 text-center">
+              <h5>Total Donasi</h5>
+              <h2 class="text-danger" id="totalDonasi">0</h2>
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <div class="card p-3 text-center">
+              <h5>Total Pengguna</h5>
+              <h2 class="text-danger" id="totalPengguna">0</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <!-- Modal foto donasi -->
+
+  <div class="modal fade" id="fotoModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Foto Bukti Donasi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="modalImage" src="" class="img-fluid rounded" alt="Bukti Donasi" style="max-height: 80vh;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="assets/js/admin.js"></script>
+</body>
+
+</html>
